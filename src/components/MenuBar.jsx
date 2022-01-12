@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import Button from '@mui/material/Button';
 import ShuffleIcon from '@mui/icons-material/Shuffle';
-import Slider from '@mui/material/Slider';
+import SliderBox from "./SliderBox";
 
 function MenuBar(props) {
 
@@ -11,7 +11,6 @@ function MenuBar(props) {
         const value = event.target.value;
 
         setSortingSpeed(value);
-        event.preventDefault();
     } 
 
     function handleSortClick(event) {
@@ -27,34 +26,17 @@ function MenuBar(props) {
     return <div className="menuBar">
         <h1 className="heading">Bubble Sort</h1>
         <form>
-            <div className="slider-outer-div">
-                <div className="slider-div">
-                    <span className="lable">Size</span>
-                    <Slider
-                        name="arrSize"
-                        defaultValue={props.defaultSize}
-                        value={props.arrSize}
-                        onChange={(event) => {
-                            props.handleSizeChange(event);
-                            event.preventDefault();
-                        }}
-
-                        valueLabelDisplay="auto"
-                        min={10}
-                        max={80}
-                        sx={{
-                            width: 200,
-                            color: "#A381FF",
-                            "& .MuiSlider-thumb": {
-                                border: "solid",
-                                borderColor: "white",
-                                borderWidth: "2px"
-                            }
-                        }}
-                    />
-                </div>
-            </div>
             
+            <SliderBox 
+                lableText="Size"
+                sliderName="arrSize"
+                defaultSize={props.defaultSize}
+                value={props.arrSize}
+                handleChange={props.handleSizeChange}
+                valueLabelDisplay="auto"
+                min={10}
+                max={80}
+            />
 
             <div className="menuButtons">
                 <div className="menuBottons-inner-div">
@@ -81,30 +63,16 @@ function MenuBar(props) {
                 </div> 
             </div>
 
-            <div className="slider-outer-div">
-                <div className="slider-div">
-                    <span className="lable">Sorting Speed</span>
-                    <Slider
-                        name="sortingSpeed"
-                        defaultValue={props.defaultSpeed}
-                        value={sortingSpeed}
-                        onChange={handleSpeedChange}
-
-                        valueLabelDisplay="auto"
-                        min={1}
-                        max={100}
-                        sx={{
-                            width: 200,
-                            color: "#A381FF",
-                            "& .MuiSlider-thumb": {
-                                border: "solid",
-                                borderColor: "white",
-                                borderWidth: "2px"
-                            }
-                        }}
-                    />
-                </div>
-            </div>
+            <SliderBox 
+                lableText="Sorting Speed"
+                sliderName="sortingSpeed"
+                defaultSize={props.defaultSpeed}
+                value={sortingSpeed}
+                handleChange={handleSpeedChange}
+                valueLabelDisplay="auto"
+                min={1}
+                max={100}
+            />
             
         </form>
     </div>;
