@@ -40,8 +40,8 @@ function MenuBar(props) {
                         }}
 
                         valueLabelDisplay="auto"
-                        min={1}
-                        max={700}
+                        min={10}
+                        max={80}
                         sx={{
                             width: 200,
                             color: "#A381FF",

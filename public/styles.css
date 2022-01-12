@@ -34,6 +34,14 @@ body {
     width: 50px;
 }
 
+.bar-height {
+    position: relative;
+    top: 17px;
+    color: #A381FF;
+    font-weight: bolder;
+    margin: 0 auto;    
+}
+
 .menuBar {
     text-align: center;
 }
@@ -69,19 +77,11 @@ body {
     margin: 0 25% 0;
 }
 
-
-.bar-height {
-    color: white;
-    text-align: center;
-    
-}
-
 .swap-div{
-    background-color: red;
+    background-color: #FF5C58;
 }
 
 .sorted-div {
-    background-color: green;
+    background-color: #34BE82;
 }
 
-/* #9C19E0 */

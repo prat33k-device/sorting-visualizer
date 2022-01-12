@@ -9,7 +9,7 @@ function Bar(props) {
     const allClasses = "building " + props.classes;
     
     return <div style={barStyle} className={allClasses}>
-        {/* <span className="bar-height">{props.height}</span> */}
+        <span className="bar-height">{props.height}</span>
     </div>;
 }
 

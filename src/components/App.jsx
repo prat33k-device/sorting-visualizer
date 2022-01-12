@@ -8,7 +8,7 @@ import bubbleSort from "../algorithms/bubbleSort";
 
 function App() {
 
-    const defaultSize = 10;
+    const defaultSize = 20;
     const defaultSpeed = 50;
 
     const [arrSize, setArrSize] = useState(defaultSize);
@@ -41,7 +41,6 @@ function App() {
     }
 
     function sortingFUNC() {
-
         bubbleSort(bars, setBars);
     }
 
