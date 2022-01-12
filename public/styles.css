@@ -77,7 +77,7 @@ body {
 }
 
 .swap-div{
-    animation: swapanimate 1s forwards;
+    animation: swapanimate 0s forwards;
 }
 
 
