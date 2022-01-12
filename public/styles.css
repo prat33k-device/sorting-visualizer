@@ -77,15 +77,11 @@ body {
 }
 
 .swap-div{
-    animation: swapanimate 0s forwards;
+    background-color: red;
 }
 
-
-@keyframes swapanimate {
-    
-    0% {background-color: #A381FF;}
-
-    100%{background-color: red;}
+.sorted-div {
+    background-color: green;
 }
 
 /* #9C19E0 */

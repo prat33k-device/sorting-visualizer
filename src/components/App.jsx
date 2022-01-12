@@ -43,7 +43,6 @@ function App() {
     function sortingFUNC() {
 
         bubbleSort(bars, setBars);
-
     }
 
     return <div>
