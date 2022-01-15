@@ -67,10 +67,10 @@ body {
     font-weight: 500;
 }
 
-.menuBottons-inner-div {
+/* .menuBottons-inner-div {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .menuButtons {
     display: inline-block;

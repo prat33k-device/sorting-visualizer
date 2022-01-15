@@ -1,20 +1,20 @@
-import React, {useState} from "react";
+import React from "react";
 import Button from '@mui/material/Button';
 import ShuffleIcon from '@mui/icons-material/Shuffle';
 import SliderBox from "./SliderBox";
 
 function MenuBar(props) {
 
-    const [sortingSpeed, setSortingSpeed] = useState(props.defaultSpeed);
-
+    
     function handleSpeedChange(event) {
         const value = event.target.value;
 
-        setSortingSpeed(value);
+        props.handleSortingSpeed(value);
+        event.preventDefault();
     } 
 
     function handleSortClick(event) {
-        props.sort();
+        props.sort(event);
         event.preventDefault();
     }
 
@@ -24,7 +24,7 @@ function MenuBar(props) {
     }
 
     return <div className="menuBar">
-        <h1 className="heading">Bubble Sort</h1>
+        <h1 className="heading">Sorting Visualizer</h1>
         <form>
             
             <SliderBox 
@@ -39,7 +39,31 @@ function MenuBar(props) {
             />
 
             <div className="menuButtons">
-                <div className="menuBottons-inner-div">
+                {/* <div className="menuBottons-inner-div"> */}
+
+                    <Button
+                        name="bubbleSort"
+                        onClick={handleSortClick}
+                        variant="contained"
+                        disableElevation
+                        sx={{
+                            color: "#1B314B"
+                        }}
+                    >
+                    Bubble Sort
+                    </Button>
+
+                    <Button
+                        name="mergeSort"
+                        onClick={handleSortClick}
+                        variant="contained"
+                        disableElevation
+                        sx={{
+                            // color: "#1B314B"
+                        }}
+                    >
+                    Merge Sort
+                    </Button>
 
                     <Button 
                         color="secondary"
@@ -48,30 +72,18 @@ function MenuBar(props) {
                         <ShuffleIcon />
                     </Button>
 
-                    <Button
-                        onClick={handleSortClick}
-
-                        variant="contained"
-                        disableElevation
-                        sx={{
-                            color: "#1B314B"
-                        }}
-                    >
-                    SORT
-                    </Button>
-
-                </div> 
+                {/* </div>  */}
             </div>
 
             <SliderBox 
                 lableText="Sorting Speed"
                 sliderName="sortingSpeed"
                 defaultSize={props.defaultSpeed}
-                value={sortingSpeed}
+                value={props.speed}
                 handleChange={handleSpeedChange}
                 valueLabelDisplay="auto"
-                min={1}
-                max={100}
+                min={0}
+                max={props.maxSpeed}
             />
             
         </form>

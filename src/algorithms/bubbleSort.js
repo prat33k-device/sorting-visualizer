@@ -1,4 +1,6 @@
 
+let isSorting = false;
+
 // returns a promise which is resolved after ms miliseconds when its called
 function delay(ms) {
     const promsie = new Promise(function(resolutionFunc, rejectionFunc) {
@@ -14,7 +16,9 @@ function resetClasses(arr) {
     });
 }
 
-async function bubbleSort(arr, setBars) {
+async function bubbleSort(arr, setBars, speed) {
+
+    isSorting = true;
 
     for(let i = 0; i < arr.length-1; i++) {
         for(let j = i; j <= arr.length-1; j++) {
@@ -37,7 +41,7 @@ async function bubbleSort(arr, setBars) {
             setBars([...arr]);   // just passing arr does not work 
 
             // waits for the returned promise to be resolved
-            await delay(5);
+            await delay(speed);
         }
     }
 
@@ -51,6 +55,7 @@ async function bubbleSort(arr, setBars) {
         await delay(10);
     }
 
+    isSorting = false;
 }
 
-export default bubbleSort;
+export {bubbleSort, isSorting};
