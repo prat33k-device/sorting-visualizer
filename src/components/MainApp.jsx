@@ -2,12 +2,14 @@ import React, {useState} from "react";
 import MenuBar from "./MenuBar";
 import Manhattan from "./Manhattan";
 import randomArray from "../algorithms/randomArray";
-import {bubbleSort, isSorting} from "../algorithms/bubbleSort";
+import {bubbleSort} from "../algorithms/bubbleSort";
+import {handleMergeSort} from "../algorithms/mergeSort";
+import isSorting from "../algorithms/isSorting";
 
 
 function MainApp(props) {
 
-    const defaultSize = 20;
+    const defaultSize = 4;
     const defaultSpeed = 150;
     const maxSpeed = 200;
 
@@ -22,7 +24,7 @@ function MainApp(props) {
     );
 
     function handleSizeChange(event) {
-        if(isSorting) return;
+        if(isSorting()) return;
 
         const value = event.target.value;
         
@@ -36,7 +38,7 @@ function MainApp(props) {
     }
 
     function handleRandomClick() {
-        if(isSorting) return;
+        if(isSorting()) return;
 
         setBars(
             randomArray(arrSize).map((ele) => {
@@ -46,20 +48,20 @@ function MainApp(props) {
     }
 
     function handleSortingSpeed(speed) {
-        if(isSorting) return;
+        if(isSorting()) return;
 
         setSortingSpeed(speed);
     }
 
     function sortingFUNC(event) {
-        if(isSorting) return;
+        if(isSorting()) return;
         
         const sortName = event.target.name;
 
         if(sortName === "bubbleSort") {
             bubbleSort(bars, setBars, maxSpeed - sortingSpeed);
         } else if(sortName === "mergeSort") {
-            console.log(sortName);
+            handleMergeSort(bars, setBars, maxSpeed - sortingSpeed);
         }
     }
 

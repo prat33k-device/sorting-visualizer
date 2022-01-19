@@ -34,7 +34,7 @@ function MenuBar(props) {
                 value={props.arrSize}
                 handleChange={props.handleSizeChange}
                 valueLabelDisplay="auto"
-                min={10}
+                min={2}
                 max={80}
             />
 

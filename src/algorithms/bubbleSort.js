@@ -1,5 +1,5 @@
 
-let isSorting = false;
+let isBubSorting = false;
 
 // returns a promise which is resolved after ms miliseconds when its called
 function delay(ms) {
@@ -18,24 +18,27 @@ function resetClasses(arr) {
 
 async function bubbleSort(arr, setBars, speed) {
 
-    isSorting = true;
+    isBubSorting = true;
 
     for(let i = 0; i < arr.length-1; i++) {
-        for(let j = i; j <= arr.length-1; j++) {
+        let swap = false;
+        for(let j = 0; j < arr.length - i - 1; j++) {
 
-            if(Number(arr[i].h) > Number(arr[j].h)) {
+            if(Number(arr[j].h) > Number(arr[j+1].h)) {
 
                 //swap
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                let temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+
+                swap = true;
             }
 
             //update the styling of the divs
             
             arr = resetClasses(arr);
-            arr[i].classes = "swap-div";
             arr[j].classes = "swap-div";
+            arr[j+1].classes = "swap-div";
             
             //updates the state
             setBars([...arr]);   // just passing arr does not work 
@@ -43,6 +46,8 @@ async function bubbleSort(arr, setBars, speed) {
             // waits for the returned promise to be resolved
             await delay(speed);
         }
+
+        if(!swap) break;
     }
 
     // after sorting animation
@@ -55,7 +60,7 @@ async function bubbleSort(arr, setBars, speed) {
         await delay(10);
     }
 
-    isSorting = false;
+    isBubSorting = false;
 }
 
-export {bubbleSort, isSorting};
+export {bubbleSort, isBubSorting};
