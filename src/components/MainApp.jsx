@@ -5,6 +5,7 @@ import randomArray from "../algorithms/randomArray";
 import {bubbleSort} from "../algorithms/bubbleSort";
 import {handleMergeSort} from "../algorithms/mergeSort";
 import isSorting from "../algorithms/isSorting";
+import { ContactPageSharp } from "@mui/icons-material";
 
 
 function MainApp(props) {
@@ -55,12 +56,15 @@ function MainApp(props) {
 
     function sortingFUNC(event) {
         if(isSorting()) return;
+        console.log("before handleMergeSort", bars);
         
         const sortName = event.target.name;
 
         if(sortName === "bubbleSort") {
+            console.log("before handleMergeSort", bars);
             bubbleSort(bars, setBars, maxSpeed - sortingSpeed);
         } else if(sortName === "mergeSort") {
+            console.log("before handleMergeSort", bars);
             handleMergeSort(bars, setBars, maxSpeed - sortingSpeed);
         }
     }

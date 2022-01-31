@@ -3,6 +3,7 @@ let isMerSorting = false;
 
 //[{updateArr: array to be updated, start: starting index}]
 var animation = [];
+var tempArr = [];
 
 function delay(ms) {
     return new Promise((resolve, reject)=>{
@@ -11,7 +12,7 @@ function delay(ms) {
 }
 
 
-function merge(arr, l, m, r)
+async function merge(arr, l, m, r)
 {
     var n1 = m - l + 1;
     var n2 = r - m;
@@ -74,15 +75,14 @@ function merge(arr, l, m, r)
 }
   
 
-function mergeSort(arr,l, r){
-    console.log("from mergeSort functon");
+async function mergeSort(arr,l, r){
     if(l>=r){
         return;
     }
     var m =l+ parseInt((r-l)/2);
-    mergeSort(arr,l,m);
-    mergeSort(arr,m+1,r);
-    merge(arr,l,m,r);
+    await mergeSort(arr,l,m);
+    await mergeSort(arr,m+1,r);
+    await merge(arr,l,m,r);
 }
 
 function resetClasses(arr) {
@@ -98,13 +98,14 @@ async function handleMergeSort(arr, setBars, speed) {
     // arr = [{h: 100, classes: "extra classes names"}, {}, ...]
 
     isMerSorting = true;
+    console.log(arr, tempArr);
 
     //empty the animation
     animation = [];
-    const tempArr = arr;
+    tempArr = arr;
     console.log(arr, tempArr);
 
-    mergeSort(tempArr, 0, tempArr.length-1);
+    await mergeSort(tempArr, 0, tempArr.length-1);
     console.log(arr, tempArr);
     
 
