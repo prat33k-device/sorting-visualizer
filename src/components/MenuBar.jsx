@@ -47,7 +47,7 @@ function MenuBar(props) {
                         variant="contained"
                         disableElevation
                         sx={{
-                            color: "#1B314B"
+                            // color: "#1B314B"
                         }}
                     >
                     Bubble Sort

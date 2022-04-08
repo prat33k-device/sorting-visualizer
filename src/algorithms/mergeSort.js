@@ -98,15 +98,15 @@ async function handleMergeSort(arr, setBars, speed) {
     // arr = [{h: 100, classes: "extra classes names"}, {}, ...]
 
     isMerSorting = true;
-    console.log(arr, tempArr);
+    // console.log(arr, tempArr);
 
     //empty the animation
     animation = [];
     tempArr = arr;
-    console.log(arr, tempArr);
+    // console.log(arr, tempArr);
 
     await mergeSort(tempArr, 0, tempArr.length-1);
-    console.log(arr, tempArr);
+    // console.log(arr, tempArr);
     
 
     for(let k = 0; k < animation.length; k++) {
